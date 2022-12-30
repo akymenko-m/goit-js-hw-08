@@ -19,6 +19,7 @@ function fillFeedbackFormField() {
 
     for (const input in userFieldsFromLS) {
         feedbackForm.elements[input].value = userFieldsFromLS[input];
+        userFeedbackForm[input] = userFieldsFromLS[input];
     };
 }
 fillFeedbackFormField();
@@ -42,9 +43,13 @@ function onContactFormSubmit(event) {
     event.preventDefault();
     console.log(userFeedbackForm);
 
+    userFeedbackForm.email = "";
+    userFeedbackForm.message = "";
+
     feedbackForm.reset();
     remove("feedback-form-state");
 };
+
 
 //variant 2
 // const feedbackForm = document.querySelector('.feedback-form');
@@ -60,8 +65,13 @@ function onContactFormSubmit(event) {
 //         };
 //         console.log(userFieldsFromLS);
 
+//         // if (userFieldsFromLS) {
+//         //     feedbackForm.elements[input].value = userFieldsFromLS[input];
+//         // }
+
 //         for (const input in userFieldsFromLS) {
 //             feedbackForm.elements[input].value = userFieldsFromLS[input];
+//             userFeedbackForm[input] = userFieldsFromLS[input];
 //         };
 //     } catch (error) {
 //         console.log(error);
@@ -86,8 +96,10 @@ function onContactFormSubmit(event) {
 
 // function onContactFormSubmit(event) {
 //     event.preventDefault();
-// console.log(userFeedbackForm);
-
+//     console.log(userFeedbackForm);
+    
+//     userFeedbackForm.email = "";
+//     userFeedbackForm.message = "";
 //     feedbackForm.reset();
 //     localStorage.removeItem("feedback-form-state");
 // };
